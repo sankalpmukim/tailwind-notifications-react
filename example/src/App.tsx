@@ -1,9 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+
+import { useNotify } from "tailwind-notifications-react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const notify = useNotify();
+  useEffect(() => {
+    notify({
+      type: "success",
+      message: `Hello World ${count}`,
+      show: true,
+      title: "Hello",
+    });
+  }, [count]);
 
   return (
     <div className="App">
@@ -28,7 +38,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
