@@ -4,6 +4,8 @@ import {
   NotificationsContextType,
 } from "../NotificationsContext";
 
+type NotifyInput = Omit<NotificationsContextType, "show">;
+
 const useNotify = () => {
   const notificationsCtx = useContext(NotificationsContext);
   if (!notificationsCtx) {
@@ -11,7 +13,7 @@ const useNotify = () => {
   }
   const setNotifications = notificationsCtx[1];
   const notify = useCallback(
-    ({ message, title, type }: NotificationsContextType) => {
+    ({ message, title, type }: NotifyInput) => {
       console.log("notify", message, title, type);
       setNotifications({ message, title, type, show: true });
     },
