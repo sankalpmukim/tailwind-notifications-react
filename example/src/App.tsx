@@ -10,7 +10,6 @@ function App() {
     notify({
       type: "success",
       message: `Hello World ${count}`,
-      show: true,
       title: "Hello",
     });
   }, [count]);
