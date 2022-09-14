@@ -4,7 +4,7 @@ import {
   NotificationsContextType,
 } from "../NotificationsContext";
 
-interface ExtraOptionsNotify {
+export interface ExtraOptionsNotify {
   autoDisappear?: boolean;
 }
 
