@@ -1,6 +1,6 @@
 {
   "name": "tailwind-notifications-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "simple and minimal notifications (toasts) component for use with react that you can use within seconds",
   "author": "sankalpmukim",
   "license": "MIT",
