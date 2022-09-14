@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save tailwind-notifications-react
+npm install --save tailwind-notifications-react --legacy-peer-deps
 ```
 
 ## Usage
