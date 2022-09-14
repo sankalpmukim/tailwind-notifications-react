@@ -4,7 +4,11 @@ import {
   NotificationsContextType,
 } from "../NotificationsContext";
 
-type NotifyInput = Omit<NotificationsContextType, "show">;
+interface ExtraOptionsNotify {
+  autoDisappear?: boolean;
+}
+
+type NotifyInput = Omit<NotificationsContextType, "show"> & ExtraOptionsNotify;
 
 const useNotify = () => {
   const notificationsCtx = useContext(NotificationsContext);
@@ -13,9 +17,13 @@ const useNotify = () => {
   }
   const setNotifications = notificationsCtx[1];
   const notify = useCallback(
-    ({ message, title, type }: NotifyInput) => {
-      console.log("notify", message, title, type);
+    ({ message, title, type, autoDisappear = true }: NotifyInput) => {
       setNotifications({ message, title, type, show: true });
+      if (autoDisappear) {
+        setTimeout(() => {
+          setNotifications({ message, title, type, show: false });
+        }, 3000);
+      }
     },
     [setNotifications]
   );
